@@ -1,0 +1,42 @@
+Running: /home/nabav/Xilinx/14.7/ISE_DS/ISE/bin/lin64/unwrapped/fuse -intstyle ise -incremental -lib secureip -o /home/nabav/Workspace/HexapodTestBench/HexapodTestBench_isim_beh.exe -prj /home/nabav/Workspace/HexapodTestBench/HexapodTestBench_beh.prj work.HexapodTestBench 
+ISim P.20131013 (signature 0xfbc00daa)
+Number of CPUs detected in this system: 8
+Turning on mult-threading, number of parallel sub-compilation jobs: 16 
+Determining compilation order of HDL files
+Parsing VHDL file "/home/nabav/Workspace/HexapodTestBench/UART_Transmitter.vhd" into library work
+Parsing VHDL file "/home/nabav/Workspace/HexapodTestBench/UART_Receiver.vhd" into library work
+Parsing VHDL file "/home/nabav/Workspace/HexapodTestBench/Jack_Controller_Main_State_Machine.vhd" into library work
+Parsing VHDL file "/home/nabav/Workspace/HexapodTestBench/Interface_Board_Main_State_Machine.vhd" into library work
+Parsing VHDL file "/home/nabav/Workspace/HexapodTestBench/Frame_Transmitter.vhd" into library work
+Parsing VHDL file "/home/nabav/Workspace/HexapodTestBench/Frame_Receiver.vhd" into library work
+Parsing VHDL file "/home/nabav/Workspace/HexapodTestBench/Debounce.vhd" into library work
+Parsing VHDL file "/home/nabav/Workspace/HexapodTestBench/JackController.vhd" into library work
+Parsing VHDL file "/home/nabav/Workspace/HexapodTestBench/InterfaceBoard.vhd" into library work
+Parsing VHDL file "/home/nabav/Workspace/HexapodTestBench/HexapodTestBench.vhd" into library work
+Starting static elaboration
+Completed static elaboration
+Fuse Memory Usage: 99004 KB
+Fuse CPU Usage: 1070 ms
+Compiling package standard
+Compiling package std_logic_1164
+Compiling package numeric_std
+Compiling package std_logic_arith
+Compiling package std_logic_unsigned
+Compiling architecture behavioral of entity Debounce [\Debounce(8)\]
+Compiling architecture behavioral of entity UART_Receiver [uart_receiver_default]
+Compiling architecture behavioral of entity UART_Transmitter [uart_transmitter_default]
+Compiling architecture behavioral of entity Frame_Transmitter [frame_transmitter_default]
+Compiling architecture behavioral of entity Debounce [\Debounce(4)\]
+Compiling architecture behavioral of entity Frame_Receiver [frame_receiver_default]
+Compiling architecture behavioral of entity Interface_Board_Main_State_Machine [interface_board_main_state_machi...]
+Compiling architecture behavioral of entity InterfaceBoard [interfaceboard_default]
+Compiling architecture behavioral of entity Jack_Controller_Main_State_Machine [jack_controller_main_state_machi...]
+Compiling architecture behavioral of entity JackController [jackcontroller_default]
+Compiling architecture behavior of entity hexapodtestbench
+Time Resolution for simulation is 1ps.
+Waiting for 1 sub-compilation(s) to finish...
+Compiled 26 VHDL Units
+Built simulation executable /home/nabav/Workspace/HexapodTestBench/HexapodTestBench_isim_beh.exe
+Fuse Memory Usage: 1199600 KB
+Fuse CPU Usage: 1240 ms
+GCC CPU Usage: 820 ms

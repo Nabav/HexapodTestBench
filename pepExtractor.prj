@@ -1,0 +1,7 @@
+work	"Debounce.vhd"
+work	"Frame_Receiver.vhd"
+work	"Frame_Transmitter.vhd"
+work	"InterfaceBoard.vhd"
+work	"Interface_Board_Main_State_Machine.vhd"
+work	"UART_Receiver.vhd"
+work	"UART_Transmitter.vhd"

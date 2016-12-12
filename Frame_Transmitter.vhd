@@ -23,9 +23,10 @@ architecture Behavioral of Frame_Transmitter is
 	signal baudrate_prescaler_counter : integer range 0 to baudrate_prescaler := 0;
 	signal Tx_Buffer : std_logic_vector(39 downto 0) := (others => '0');
 	signal checksum : std_logic_vector(7 downto 0) := (others => '0');
-	type FSM_state_type is (idle, capture, send_low, send_bit, send_high, prepare_next_bit);
+	type FSM_state_type is (idle, capture, send_low, send_bit, send_high, prepare_next_bit, hold_bus_idle);
 	signal state : FSM_state_type := idle;
 	signal bit_number : integer range 0 to 39 := 39;
+	signal bus_hold_counter : integer range 0 to 5 := 0;
 begin
 	Frame_Tx_FSM: process(clk)
 		variable Tx_Start_old : std_logic := '0';
@@ -41,6 +42,7 @@ begin
 					TX_RS485 <= '1';
 					Tx_Busy <= '0';
 					bit_number <= 39;
+					bus_hold_counter <= 0;
 					if (Tx_Start_old = '0' and Tx_Start = '1') then
 						state <= capture;
 					end if;
@@ -72,6 +74,15 @@ begin
 					else
 						bit_number <= 39;
 						state <= idle;
+					end if;
+				when hold_bus_idle =>
+					if (baudrate_prescaler_counter = 0) then
+						if (bus_hold_counter < 5) then
+							bus_hold_counter <= bus_hold_counter + 1;
+						else
+							bus_hold_counter <= 0;
+							state <= idle;
+						end if;
 					end if;
 			end case;
 			Tx_Start_old := Tx_Start;

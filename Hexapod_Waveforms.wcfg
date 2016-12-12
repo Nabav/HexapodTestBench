@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="/home/nabav/Workspace/HexapodTestBench/HexapodTestBench_isim_beh.wdb" id="1" type="auto">
+         <top_modules>
+            <top_module name="hexapodtestbench" />
+            <top_module name="numeric_std" />
+            <top_module name="std_logic_1164" />
+            <top_module name="std_logic_arith" />
+            <top_module name="std_logic_unsigned" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <WVObjectSize size="18" />
+   <wvobject fp_name="/hexapodtestbench/clk" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/hexapodtestbench/rx_rs232" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">rx_rs232</obj_property>
+      <obj_property name="ObjectShortName">rx_rs232</obj_property>
+   </wvobject>
+   <wvobject fp_name="/hexapodtestbench/tx_rs232" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">tx_rs232</obj_property>
+      <obj_property name="ObjectShortName">tx_rs232</obj_property>
+   </wvobject>
+   <wvobject fp_name="/hexapodtestbench/tx_rs485_interfaceboard" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">tx_rs485_interfaceboard</obj_property>
+      <obj_property name="ObjectShortName">tx_rs485_interfaceboard</obj_property>
+   </wvobject>
+   <wvobject fp_name="/hexapodtestbench/rx_rs485_interfaceboard" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">rx_rs485_interfaceboard</obj_property>
+      <obj_property name="ObjectShortName">rx_rs485_interfaceboard</obj_property>
+   </wvobject>
+   <wvobject fp_name="/hexapodtestbench/line_rs485" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">line_rs485</obj_property>
+      <obj_property name="ObjectShortName">line_rs485</obj_property>
+   </wvobject>
+   <wvobject fp_name="/hexapodtestbench/dir_rs485_interfaceboard" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">dir_rs485_interfaceboard</obj_property>
+      <obj_property name="ObjectShortName">dir_rs485_interfaceboard</obj_property>
+   </wvobject>
+   <wvobject fp_name="/hexapodtestbench/rx_rs485_jack" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">rx_rs485_jack[0:5]</obj_property>
+      <obj_property name="ObjectShortName">rx_rs485_jack[0:5]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/hexapodtestbench/tx_rs485_jack" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">tx_rs485_jack[0:5]</obj_property>
+      <obj_property name="ObjectShortName">tx_rs485_jack[0:5]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/hexapodtestbench/dir_rs485_jack" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">dir_rs485_jack[0:5]</obj_property>
+      <obj_property name="ObjectShortName">dir_rs485_jack[0:5]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/hexapodtestbench/parameter_bank_read_request" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">parameter_bank_read_request[0:5]</obj_property>
+      <obj_property name="ObjectShortName">parameter_bank_read_request[0:5]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/hexapodtestbench/parameter_bank_read_address" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">parameter_bank_read_address[0:5]</obj_property>
+      <obj_property name="ObjectShortName">parameter_bank_read_address[0:5]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/hexapodtestbench/parameter_bank_read_response" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">parameter_bank_read_response[0:5]</obj_property>
+      <obj_property name="ObjectShortName">parameter_bank_read_response[0:5]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/hexapodtestbench/parameter_bank_read_data" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">parameter_bank_read_data[0:5]</obj_property>
+      <obj_property name="ObjectShortName">parameter_bank_read_data[0:5]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/hexapodtestbench/parameter_bank_write_request" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">parameter_bank_write_request[0:5]</obj_property>
+      <obj_property name="ObjectShortName">parameter_bank_write_request[0:5]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/hexapodtestbench/parameter_bank_write_address" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">parameter_bank_write_address[0:5]</obj_property>
+      <obj_property name="ObjectShortName">parameter_bank_write_address[0:5]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <wvobject fp_name="/hexapodtestbench/parameter_bank_write_address[0]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[0]</obj_property>
+         <obj_property name="ObjectShortName">parameter_bank_write_address[0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/hexapodtestbench/parameter_bank_write_address[1]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[1]</obj_property>
+         <obj_property name="ObjectShortName">parameter_bank_write_address[1]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/hexapodtestbench/parameter_bank_write_address[2]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[2]</obj_property>
+         <obj_property name="ObjectShortName">parameter_bank_write_address[2]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/hexapodtestbench/parameter_bank_write_address[3]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[3]</obj_property>
+         <obj_property name="ObjectShortName">parameter_bank_write_address[3]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/hexapodtestbench/parameter_bank_write_address[4]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[4]</obj_property>
+         <obj_property name="ObjectShortName">parameter_bank_write_address[4]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/hexapodtestbench/parameter_bank_write_address[5]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[5]</obj_property>
+         <obj_property name="ObjectShortName">parameter_bank_write_address[5]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="/hexapodtestbench/parameter_bank_write_data" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">parameter_bank_write_data[0:5]</obj_property>
+      <obj_property name="ObjectShortName">parameter_bank_write_data[0:5]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <wvobject fp_name="/hexapodtestbench/parameter_bank_write_data[0]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[0]</obj_property>
+         <obj_property name="ObjectShortName">parameter_bank_write_data[0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/hexapodtestbench/parameter_bank_write_data[1]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[1]</obj_property>
+         <obj_property name="ObjectShortName">parameter_bank_write_data[1]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/hexapodtestbench/parameter_bank_write_data[2]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[2]</obj_property>
+         <obj_property name="ObjectShortName">parameter_bank_write_data[2]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/hexapodtestbench/parameter_bank_write_data[3]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[3]</obj_property>
+         <obj_property name="ObjectShortName">parameter_bank_write_data[3]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/hexapodtestbench/parameter_bank_write_data[4]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[4]</obj_property>
+         <obj_property name="ObjectShortName">parameter_bank_write_data[4]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/hexapodtestbench/parameter_bank_write_data[5]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[5]</obj_property>
+         <obj_property name="ObjectShortName">parameter_bank_write_data[5]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="/hexapodtestbench/parameter_bank_write_done" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">parameter_bank_write_done[0:5]</obj_property>
+      <obj_property name="ObjectShortName">parameter_bank_write_done[0:5]</obj_property>
+   </wvobject>
+</wave_config>

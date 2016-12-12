@@ -44,7 +44,7 @@ entity Interface_Board_Main_State_Machine is
 end Interface_Board_Main_State_Machine;
 
 architecture Behavioral of Interface_Board_Main_State_Machine is
-	constant max_timeout : integer := 3000;
+	constant max_timeout : integer := 5000;
 	type FSM_state_type is (idle, decode, 
 							write_request, wait_for_write_request_transmitted,
 							read_request, wait_for_read_request_transmitted, wait_for_read_done, read_response,
@@ -131,7 +131,7 @@ begin
 					state <= wait_for_write_request_transmitted;
 				when wait_for_write_request_transmitted =>
 					timeout_counter := timeout_counter + 1;
-					if ((Tx_Busy_old = '0' and Tx_Busy = '1') or timeout_counter = max_timeout) then
+					if ((Tx_Busy_old = '1' and Tx_Busy = '0') or timeout_counter = max_timeout) then
 						Tx_Start <= '0';
 						timeout_counter := 0;
 						state <= idle;
@@ -141,7 +141,7 @@ begin
 					state <= wait_for_read_request_transmitted;
 				when wait_for_read_request_transmitted =>
 					timeout_counter := timeout_counter + 1;
-					if (Tx_Busy_old = '0' and Tx_Busy = '1') then
+					if (Tx_Busy_old = '1' and Tx_Busy = '0') then
 						Tx_Start <= '0';
 						state <= wait_for_read_done;
 					elsif (timeout_counter = max_timeout) then
@@ -178,8 +178,9 @@ begin
 					state <= wait_for_cyclic_write_transmitted;
 				when wait_for_cyclic_write_transmitted =>
 					timeout_counter := timeout_counter + 1;
-					if (Tx_Busy_old = '0' and Tx_Busy = '1') then
+					if (Tx_Busy_old = '1' and Tx_Busy = '0') then
 						Tx_Start <= '0';
+						timeout_counter := 0;
 						if (sequence_number < 11) then
 							sequence_number <= sequence_number + 1;
 							state <= cyclic_command;
@@ -201,8 +202,9 @@ begin
 					state <= wait_for_write_latch_commands_transmitted;
 				when wait_for_write_latch_commands_transmitted =>
 					timeout_counter := timeout_counter + 1;
-					if (Tx_Busy_old = '0' and Tx_Busy = '1') then
+					if (Tx_Busy_old = '1' and Tx_Busy = '0') then
 						Tx_Start <= '0';
+						timeout_counter := 0;
 						Tx_Frame_Type <= "01";
 						Tx_Jack_Nember <= "111";
 						Tx_Parameter_Address <= x"CC";
@@ -218,8 +220,9 @@ begin
 					state <= wait_for_write_latch_feedbacks_transmitted;
 				when wait_for_write_latch_feedbacks_transmitted =>
 					timeout_counter := timeout_counter + 1;
-					if (Tx_Busy_old = '0' and Tx_Busy = '1') then
+					if (Tx_Busy_old = '1' and Tx_Busy = '0') then
 						Tx_Start <= '0';
+						timeout_counter := 0;
 						state <= cyclic_feedback;
 					elsif (timeout_counter = max_timeout) then
 						Tx_Start <= '0';
@@ -237,8 +240,9 @@ begin
 					state <= wait_for_cyclic_read_transmitted;
 				when wait_for_cyclic_read_transmitted =>
 					timeout_counter := timeout_counter + 1;
-					if (Tx_Busy_old = '0' and Tx_Busy = '1') then
+					if (Tx_Busy_old = '1' and Tx_Busy = '0') then
 						Tx_Start <= '0';
+						timeout_counter := 0;
 						state <= wait_for_cyclic_read_done;
 					elsif (timeout_counter = max_timeout) then
 						Tx_Start <= '0';
@@ -246,7 +250,9 @@ begin
 						state <= idle;
 					end if;
 				when wait_for_cyclic_read_done =>
+					timeout_counter := timeout_counter + 1;
 					if (Rx_Ready_old = '0' and Rx_Ready = '1') then
+						timeout_counter := 0;
 						if ((jack_of_the_sequence = Rx_Jack_Nember) and (read_address_of_the_sequence = Rx_Parameter_Address)) then
 							jack_feedbacks(sequence_number) <= Rx_Parameter_Value;
 							state <= check_end_of_read_sequence;
@@ -268,6 +274,7 @@ begin
 					end if;
 				when cyclic_feedback_response =>
 					PC_Response_Ready <= '1';
+					state <= idle;
 			end case;
 			PC_Rx_Data_Ready_old := PC_Rx_Data_Ready;
 			Tx_Busy_old := Tx_Busy;

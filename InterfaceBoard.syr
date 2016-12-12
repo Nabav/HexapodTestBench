@@ -5,14 +5,14 @@ Parameter TMPDIR set to xst/projnav.tmp
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.03 secs
+Total CPU time to Xst completion: 0.04 secs
  
 --> 
 Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.03 secs
+Total CPU time to Xst completion: 0.04 secs
  
 --> 
 Reading design: InterfaceBoard.prj
@@ -343,6 +343,7 @@ Synthesizing Unit <Frame_Transmitter>.
     Found 1-bit register for signal <TX_RS485>.
     Found 1-bit register for signal <Tx_Busy>.
     Found 6-bit register for signal <bit_number>.
+    Found 3-bit register for signal <bus_hold_counter>.
     Found 3-bit register for signal <state>.
     Found 1-bit register for signal <Tx_Buffer<39>>.
     Found 1-bit register for signal <Tx_Buffer<38>>.
@@ -378,30 +379,33 @@ Synthesizing Unit <Frame_Transmitter>.
     Found 1-bit register for signal <Tx_Buffer<8>>.
     Found 1-bit register for signal <Frame_Tx_FSM.Tx_Start_old>.
     Found 6-bit register for signal <baudrate_prescaler_counter>.
+INFO:Xst:1799 - State hold_bus_idle is never reached in FSM <state>.
     Found finite state machine <FSM_1> for signal <state>.
     -----------------------------------------------------------------------
-    | States             | 6                                              |
+    | States             | 7                                              |
     | Transitions        | 12                                             |
-    | Inputs             | 4                                              |
+    | Inputs             | 5                                              |
     | Outputs            | 4                                              |
     | Clock              | clk (rising_edge)                              |
     | Power Up State     | idle                                           |
     | Encoding           | auto                                           |
     | Implementation     | LUT                                            |
     -----------------------------------------------------------------------
-    Found 6-bit adder for signal <baudrate_prescaler_counter[5]_GND_10_o_add_1_OUT> created at line 37.
-    Found 6-bit subtractor for signal <GND_10_o_GND_10_o_sub_13_OUT<5:0>> created at line 70.
-    Found 8-bit adder for signal <_n0145> created at line 25.
-    Found 8-bit adder for signal <_n0146> created at line 25.
-    Found 8-bit adder for signal <_n0147> created at line 25.
+    Found 6-bit adder for signal <baudrate_prescaler_counter[5]_GND_10_o_add_1_OUT> created at line 38.
+    Found 3-bit adder for signal <bus_hold_counter[2]_GND_10_o_add_17_OUT> created at line 81.
+    Found 6-bit subtractor for signal <GND_10_o_GND_10_o_sub_13_OUT<5:0>> created at line 72.
+    Found 8-bit adder for signal <_n0162> created at line 25.
+    Found 8-bit adder for signal <_n0163> created at line 25.
+    Found 8-bit adder for signal <_n0164> created at line 25.
     Found 8-bit subtractor for signal <checksum> created at line 25.
-    Found 1-bit 40-to-1 multiplexer for signal <bit_number[5]_X_10_o_Mux_7_o> created at line 60.
-    Found 6-bit comparator greater for signal <n0000> created at line 34
+    Found 1-bit 40-to-1 multiplexer for signal <bit_number[5]_X_10_o_Mux_7_o> created at line 62.
+    Found 6-bit comparator greater for signal <n0000> created at line 35
+    Found 3-bit comparator greater for signal <bus_hold_counter[2]_PWR_12_o_LessThan_17_o> created at line 80
     Summary:
-	inferred   6 Adder/Subtractor(s).
-	inferred  46 D-type flip-flop(s).
-	inferred   1 Comparator(s).
-	inferred   6 Multiplexer(s).
+	inferred   7 Adder/Subtractor(s).
+	inferred  49 D-type flip-flop(s).
+	inferred   2 Comparator(s).
+	inferred   8 Multiplexer(s).
 	inferred   1 Finite State Machine(s).
 Unit <Frame_Transmitter> synthesized.
 
@@ -425,13 +429,13 @@ Synthesizing Unit <Frame_Receiver>.
     Found 16-bit register for signal <Rx_Parameter_Value>.
     Found 1-bit register for signal <Low_State_Duration_Counter.RX_RS485_old>.
     Found 7-bit register for signal <low_duration_counter>.
-    Found 7-bit adder for signal <low_duration_counter[6]_GND_12_o_add_1_OUT> created at line 37.
-    Found 8-bit adder for signal <n0073> created at line 60.
-    Found 8-bit adder for signal <n0076> created at line 60.
-    Found 8-bit adder for signal <n0079> created at line 60.
-    Found 8-bit adder for signal <checksum> created at line 60.
-    Found 7-bit comparator greater for signal <low_duration_counter[6]_PWR_15_o_LessThan_1_o> created at line 36
-    Found 7-bit comparator lessequal for signal <low_duration_counter[6]_GND_12_o_LessThan_24_o> created at line 58
+    Found 7-bit adder for signal <low_duration_counter[6]_GND_12_o_add_1_OUT> created at line 50.
+    Found 8-bit adder for signal <n0077> created at line 76.
+    Found 8-bit adder for signal <n0080> created at line 76.
+    Found 8-bit adder for signal <n0083> created at line 76.
+    Found 8-bit adder for signal <checksum> created at line 76.
+    Found 7-bit comparator greater for signal <low_duration_counter[6]_PWR_15_o_LessThan_1_o> created at line 49
+    Found 7-bit comparator lessequal for signal <low_duration_counter[6]_GND_12_o_LessThan_26_o> created at line 74
     Summary:
 	inferred   5 Adder/Subtractor(s).
 	inferred  79 D-type flip-flop(s).
@@ -468,7 +472,7 @@ WARNING:Xst:647 - Input <Rx_Frame_Type> is never used. This port will be preserv
     Found 1-bit register for signal <Main_FSM.PC_Rx_Data_Ready_old>.
     Found 1-bit register for signal <Main_FSM.Tx_Busy_old>.
     Found 1-bit register for signal <Main_FSM.Rx_Ready_old>.
-    Found 12-bit register for signal <Main_FSM.timeout_counter>.
+    Found 13-bit register for signal <Main_FSM.timeout_counter>.
     Found finite state machine <FSM_2> for signal <state>.
     -----------------------------------------------------------------------
     | States             | 21                                             |
@@ -481,19 +485,19 @@ WARNING:Xst:647 - Input <Rx_Frame_Type> is never used. This port will be preserv
     | Implementation     | LUT                                            |
     -----------------------------------------------------------------------
     Found 3-bit adder for signal <jack_of_the_sequence> created at line 70.
-    Found 12-bit adder for signal <Main_FSM.timeout_counter[11]_GND_13_o_add_91_OUT> created at line 239.
-    Found 4-bit adder for signal <sequence_number[3]_GND_13_o_add_143_OUT> created at line 262.
+    Found 13-bit adder for signal <Main_FSM.timeout_counter[12]_GND_13_o_add_91_OUT> created at line 242.
+    Found 4-bit adder for signal <sequence_number[3]_GND_13_o_add_144_OUT> created at line 268.
     Found 16-bit 12-to-1 multiplexer for signal <sequence_number[3]_X_13_o_wide_mux_55_OUT> created at line 174.
     Found 3-bit comparator equal for signal <PC_Rx_Jack_Nember[2]_Rx_Jack_Nember[2]_equal_40_o> created at line 154
     Found 8-bit comparator equal for signal <PC_Rx_Parameter_Address[7]_Rx_Parameter_Address[7]_equal_41_o> created at line 154
-    Found 3-bit comparator equal for signal <jack_of_the_sequence[2]_Rx_Jack_Nember[2]_equal_98_o> created at line 250
-    Found 8-bit comparator equal for signal <read_address_of_the_sequence[7]_Rx_Parameter_Address[7]_equal_99_o> created at line 250
-    Found 4-bit comparator greater for signal <sequence_number[3]_PWR_16_o_LessThan_58_o> created at line 261
+    Found 3-bit comparator equal for signal <jack_of_the_sequence[2]_Rx_Jack_Nember[2]_equal_99_o> created at line 256
+    Found 8-bit comparator equal for signal <read_address_of_the_sequence[7]_Rx_Parameter_Address[7]_equal_100_o> created at line 256
+    Found 4-bit comparator greater for signal <sequence_number[3]_PWR_16_o_LessThan_58_o> created at line 267
     Summary:
 	inferred   3 Adder/Subtractor(s).
-	inferred 272 D-type flip-flop(s).
+	inferred 273 D-type flip-flop(s).
 	inferred   5 Comparator(s).
-	inferred  26 Multiplexer(s).
+	inferred  28 Multiplexer(s).
 	inferred   1 Finite State Machine(s).
 Unit <Interface_Board_Main_State_Machine> synthesized.
 
@@ -503,9 +507,9 @@ HDL Synthesis Report
 Macro Statistics
 # RAMs                                                 : 1
  8x1-bit single-port Read Only RAM                     : 1
-# Adders/Subtractors                                   : 69
- 12-bit adder                                          : 1
- 3-bit adder                                           : 1
+# Adders/Subtractors                                   : 70
+ 13-bit adder                                          : 1
+ 3-bit adder                                           : 2
  3-bit subtractor                                      : 1
  4-bit adder                                           : 2
  5-bit adder                                           : 1
@@ -515,13 +519,13 @@ Macro Statistics
  8-bit adder                                           : 56
  8-bit subtractor                                      : 2
  9-bit adder                                           : 2
-# Registers                                            : 114
+# Registers                                            : 115
  1-bit register                                        : 28
  10-bit register                                       : 1
- 12-bit register                                       : 1
+ 13-bit register                                       : 1
  16-bit register                                       : 17
  2-bit register                                        : 2
- 3-bit register                                        : 6
+ 3-bit register                                        : 7
  32-bit register                                       : 11
  4-bit register                                        : 3
  40-bit register                                       : 1
@@ -530,8 +534,9 @@ Macro Statistics
  7-bit register                                        : 1
  8-bit register                                        : 38
  9-bit register                                        : 2
-# Comparators                                          : 13
+# Comparators                                          : 14
  3-bit comparator equal                                : 2
+ 3-bit comparator greater                              : 1
  4-bit comparator greater                              : 2
  5-bit comparator greater                              : 1
  6-bit comparator greater                              : 1
@@ -540,15 +545,15 @@ Macro Statistics
  8-bit comparator equal                                : 2
  9-bit comparator greater                              : 1
  9-bit comparator lessequal                            : 2
-# Multiplexers                                         : 65
+# Multiplexers                                         : 69
  1-bit 2-to-1 multiplexer                              : 6
  1-bit 40-to-1 multiplexer                             : 1
  1-bit 8-to-1 multiplexer                              : 1
- 12-bit 2-to-1 multiplexer                             : 9
+ 13-bit 2-to-1 multiplexer                             : 11
  16-bit 12-to-1 multiplexer                            : 1
  16-bit 2-to-1 multiplexer                             : 4
  2-bit 2-to-1 multiplexer                              : 1
- 3-bit 2-to-1 multiplexer                              : 4
+ 3-bit 2-to-1 multiplexer                              : 6
  4-bit 2-to-1 multiplexer                              : 5
  5-bit 2-to-1 multiplexer                              : 2
  6-bit 2-to-1 multiplexer                              : 2
@@ -575,13 +580,13 @@ WARNING:Xst:2677 - Node <Serial_Rx_Shift_Register.sr_0> of sequential type is un
 Synthesizing (advanced) Unit <Frame_Receiver>.
 The following registers are absorbed into counter <low_duration_counter>: 1 register on signal <low_duration_counter>.
 	The following adders/subtractors are grouped into adder tree <Madd_checksum1> :
- 	<Madd_n0073> in block <Frame_Receiver>, 	<Madd_n0076> in block <Frame_Receiver>, 	<Madd_n0079> in block <Frame_Receiver>, 	<Madd_checksum> in block <Frame_Receiver>.
+ 	<Madd_n0077> in block <Frame_Receiver>, 	<Madd_n0080> in block <Frame_Receiver>, 	<Madd_n0083> in block <Frame_Receiver>, 	<Madd_checksum> in block <Frame_Receiver>.
 Unit <Frame_Receiver> synthesized (advanced).
 
 Synthesizing (advanced) Unit <Frame_Transmitter>.
 The following registers are absorbed into counter <baudrate_prescaler_counter>: 1 register on signal <baudrate_prescaler_counter>.
-	The following adders/subtractors are grouped into adder tree <Madd__n01471> :
- 	<Madd__n0145> in block <Frame_Transmitter>, 	<Madd__n0146> in block <Frame_Transmitter>.
+	The following adders/subtractors are grouped into adder tree <Madd__n01641> :
+ 	<Madd__n0162> in block <Frame_Transmitter>, 	<Madd__n0163> in block <Frame_Transmitter>.
 Unit <Frame_Transmitter> synthesized (advanced).
 
 Synthesizing (advanced) Unit <UART_Receiver>.
@@ -618,9 +623,9 @@ Advanced HDL Synthesis Report
 Macro Statistics
 # RAMs                                                 : 1
  8x1-bit single-port distributed Read Only RAM         : 1
-# Adders/Subtractors                                   : 8
- 12-bit adder                                          : 1
- 3-bit adder                                           : 1
+# Adders/Subtractors                                   : 9
+ 13-bit adder                                          : 1
+ 3-bit adder                                           : 2
  3-bit subtractor                                      : 1
  4-bit adder                                           : 2
  5-bit adder                                           : 1
@@ -635,10 +640,11 @@ Macro Statistics
  6-bit up counter                                      : 1
  7-bit up counter                                      : 1
  9-bit up counter                                      : 2
-# Registers                                            : 1062
- Flip-Flops                                            : 1062
-# Comparators                                          : 13
+# Registers                                            : 1066
+ Flip-Flops                                            : 1066
+# Comparators                                          : 14
  3-bit comparator equal                                : 2
+ 3-bit comparator greater                              : 1
  4-bit comparator greater                              : 2
  5-bit comparator greater                              : 1
  6-bit comparator greater                              : 1
@@ -647,16 +653,16 @@ Macro Statistics
  8-bit comparator equal                                : 2
  9-bit comparator greater                              : 1
  9-bit comparator lessequal                            : 2
-# Multiplexers                                         : 72
+# Multiplexers                                         : 76
  1-bit 2-to-1 multiplexer                              : 6
  1-bit 26-to-1 multiplexer                             : 8
  1-bit 40-to-1 multiplexer                             : 1
  1-bit 8-to-1 multiplexer                              : 1
- 12-bit 2-to-1 multiplexer                             : 9
+ 13-bit 2-to-1 multiplexer                             : 11
  16-bit 12-to-1 multiplexer                            : 1
  16-bit 2-to-1 multiplexer                             : 4
  2-bit 2-to-1 multiplexer                              : 1
- 3-bit 2-to-1 multiplexer                              : 4
+ 3-bit 2-to-1 multiplexer                              : 6
  4-bit 2-to-1 multiplexer                              : 5
  5-bit 2-to-1 multiplexer                              : 2
  6-bit 2-to-1 multiplexer                              : 2
@@ -682,7 +688,7 @@ WARNING:Xst:1426 - The value init of the FF/Latch Tx_Buffer_37 hinder the consta
 WARNING:Xst:1426 - The value init of the FF/Latch Tx_Buffer_39 hinder the constant cleaning in the block Frame_Transmitter.
    You should achieve better results by setting this init to 1.
 INFO:Xst:2261 - The FF/Latch <PC_Tx_Buffer_0_1> in Unit <UART_Transmitter> is equivalent to the following 2 FFs/Latches, which will be removed : <PC_Tx_Buffer_0_6> <PC_Tx_Buffer_0_7> 
-INFO:Xst:2261 - The FF/Latch <Tx_Buffer_37> in Unit <Frame_Transmitter> is equivalent to the following FF/Latch, which will be removed : <Tx_Buffer_39> 
+INFO:Xst:2261 - The FF/Latch <Tx_Buffer_39> in Unit <Frame_Transmitter> is equivalent to the following FF/Latch, which will be removed : <Tx_Buffer_37> 
 Analyzing FSM <MFsm> for best encoding.
 Optimizing FSM <PC_UART_Transmitter/FSM_0> on signal <state[1:2]> with user encoding.
 ------------------------------
@@ -704,6 +710,7 @@ Optimizing FSM <RS485_Frame_Transmitter/FSM_1> on signal <state[1:3]> with user 
  send_bit         | 011
  send_high        | 100
  prepare_next_bit | 101
+ hold_bus_idle    | unreached
 ------------------------------
 Analyzing FSM <MFsm> for best encoding.
 Optimizing FSM <Main_FSM/FSM_2> on signal <state[1:5]> with user encoding.
@@ -732,6 +739,9 @@ Optimizing FSM <Main_FSM/FSM_2> on signal <state[1:5]> with user encoding.
  check_end_of_read_sequence                 | 10011
  cyclic_feedback_response                   | 10100
 --------------------------------------------------------
+WARNING:Xst:2677 - Node <bus_hold_counter_0> of sequential type is unconnected in block <Frame_Transmitter>.
+WARNING:Xst:2677 - Node <bus_hold_counter_1> of sequential type is unconnected in block <Frame_Transmitter>.
+WARNING:Xst:2677 - Node <bus_hold_counter_2> of sequential type is unconnected in block <Frame_Transmitter>.
 WARNING:Xst:1710 - FF/Latch <PC_Tx_Packet_Type_1> (without init value) has a constant value of 1 in block <Interface_Board_Main_State_Machine>. This FF/Latch will be trimmed during the optimization process.
 
 Optimizing unit <InterfaceBoard> ...
@@ -759,8 +769,8 @@ Final Macro Processing ...
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 1095
- Flip-Flops                                            : 1095
+# Registers                                            : 1096
+ Flip-Flops                                            : 1096
 
 =========================================================================
 
@@ -783,25 +793,25 @@ Top Level Output File Name         : InterfaceBoard.ngc
 
 Primitive and Black Box Usage:
 ------------------------------
-# BELS                             : 1895
+# BELS                             : 1902
 #      GND                         : 1
 #      INV                         : 7
-#      LUT1                        : 27
+#      LUT1                        : 28
 #      LUT2                        : 298
-#      LUT3                        : 238
-#      LUT4                        : 440
-#      LUT5                        : 83
+#      LUT3                        : 235
+#      LUT4                        : 441
+#      LUT5                        : 90
 #      LUT6                        : 195
-#      MUXCY                       : 258
-#      MUXF7                       : 52
+#      MUXCY                       : 259
+#      MUXF7                       : 51
 #      MUXF8                       : 1
 #      VCC                         : 1
-#      XORCY                       : 294
-# FlipFlops/Latches                : 1095
+#      XORCY                       : 295
+# FlipFlops/Latches                : 1096
 #      FD                          : 42
-#      FDE                         : 1014
+#      FDE                         : 975
 #      FDR                         : 23
-#      FDRE                        : 7
+#      FDRE                        : 47
 #      FDSE                        : 9
 # Clock Buffers                    : 1
 #      BUFGP                       : 1
@@ -816,15 +826,15 @@ Selected Device : 6slx45fgg484-3
 
 
 Slice Logic Utilization: 
- Number of Slice Registers:            1095  out of  54576     2%  
- Number of Slice LUTs:                 1288  out of  27288     4%  
-    Number used as Logic:              1288  out of  27288     4%  
+ Number of Slice Registers:            1096  out of  54576     2%  
+ Number of Slice LUTs:                 1294  out of  27288     4%  
+    Number used as Logic:              1294  out of  27288     4%  
 
 Slice Logic Distribution: 
- Number of LUT Flip Flop pairs used:   1740
-   Number with an unused Flip Flop:     645  out of   1740    37%  
-   Number with an unused LUT:           452  out of   1740    25%  
-   Number of fully used LUT-FF pairs:   643  out of   1740    36%  
+ Number of LUT Flip Flop pairs used:   1747
+   Number with an unused Flip Flop:     651  out of   1747    37%  
+   Number with an unused LUT:           453  out of   1747    25%  
+   Number of fully used LUT-FF pairs:   643  out of   1747    36%  
    Number of unique control sets:        41
 
 IO Utilization: 
@@ -855,7 +865,7 @@ Clock Information:
 -----------------------------------+------------------------+-------+
 Clock Signal                       | Clock buffer(FF name)  | Load  |
 -----------------------------------+------------------------+-------+
-clk                                | BUFGP                  | 1095  |
+clk                                | BUFGP                  | 1096  |
 -----------------------------------+------------------------+-------+
 
 Asynchronous Control Signals Information:
@@ -868,7 +878,7 @@ Speed Grade: -3
 
    Minimum period: 10.499ns (Maximum Frequency: 95.248MHz)
    Minimum input arrival time before clock: 1.903ns
-   Maximum output required time after clock: 3.975ns
+   Maximum output required time after clock: 4.067ns
    Maximum combinational path delay: No path found
 
 Timing Details:
@@ -878,7 +888,7 @@ All values displayed in nanoseconds (ns)
 =========================================================================
 Timing constraint: Default period analysis for Clock 'clk'
   Clock period: 10.499ns (frequency: 95.248MHz)
-  Total number of paths / destination ports: 23072987 / 2160
+  Total number of paths / destination ports: 23145343 / 2202
 -------------------------------------------------------------------------
 Delay:               10.499ns (Levels of Logic = 19)
   Source:            PC_UART_Receiver/PC_Rx_Buffer_2_0 (FF)
@@ -938,20 +948,20 @@ Offset:              1.903ns (Levels of Logic = 1)
 Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
   Total number of paths / destination ports: 33 / 33
 -------------------------------------------------------------------------
-Offset:              3.975ns (Levels of Logic = 1)
-  Source:            RS485_Frame_Receiver/Rx_Parameter_Value_15 (FF)
-  Destination:       debug_pin<29> (PAD)
+Offset:              4.067ns (Levels of Logic = 1)
+  Source:            RS485_Frame_Transmitter/Tx_Busy (FF)
+  Destination:       DIR_RS485 (PAD)
   Source Clock:      clk rising
 
-  Data Path: RS485_Frame_Receiver/Rx_Parameter_Value_15 to debug_pin<29>
+  Data Path: RS485_Frame_Transmitter/Tx_Busy to DIR_RS485
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDE:C->Q             14   0.447   0.957  RS485_Frame_Receiver/Rx_Parameter_Value_15 (RS485_Frame_Receiver/Rx_Parameter_Value_15)
-     OBUF:I->O                 2.571          debug_pin_29_OBUF (debug_pin<29>)
+     FD:C->Q              18   0.447   1.049  RS485_Frame_Transmitter/Tx_Busy (RS485_Frame_Transmitter/Tx_Busy)
+     OBUF:I->O                 2.571          DIR_RS485_OBUF (DIR_RS485)
     ----------------------------------------
-    Total                      3.975ns (3.018ns logic, 0.957ns route)
-                                       (75.9% logic, 24.1% route)
+    Total                      4.067ns (3.018ns logic, 1.049ns route)
+                                       (74.2% logic, 25.8% route)
 
 =========================================================================
 
@@ -970,14 +980,14 @@ clk            |   10.499|         |         |         |
 
 
 Total REAL time to Xst completion: 8.00 secs
-Total CPU time to Xst completion: 8.23 secs
+Total CPU time to Xst completion: 8.17 secs
  
 --> 
 
 
-Total memory usage is 401444 kilobytes
+Total memory usage is 401500 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :   16 (   0 filtered)
-Number of infos    :    6 (   0 filtered)
+Number of warnings :   19 (   0 filtered)
+Number of infos    :    7 (   0 filtered)
 

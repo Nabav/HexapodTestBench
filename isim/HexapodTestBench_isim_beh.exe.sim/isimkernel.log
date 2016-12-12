@@ -2,28 +2,28 @@ Command line:
    HexapodTestBench_isim_beh.exe
      -simmode  gui
      -simrunnum  0
-     -socket  42982
+     -socket  56031
 
-Thu Dec  8 13:16:23 2016
+Mon Dec 12 20:58:09 2016
 
 
- Elaboration Time: 0.01 sec
+ Elaboration Time: 0.02 sec
 
- Current Memory Usage: 199.741 Meg
+ Current Memory Usage: 200.012 Meg
 
- Total Signals          : 662
- Total Nets             : 3049
- Total Signal Drivers   : 280
- Total Blocks           : 49
- Total Primitive Blocks : 35
- Total Processes        : 99
- Total Traceable Variables  : 85
- Total Scalar Nets and Variables : 3620
-Total Line Count : 911
+ Total Signals          : 671
+ Total Nets             : 3279
+ Total Signal Drivers   : 309
+ Total Blocks           : 55
+ Total Primitive Blocks : 41
+ Total Processes        : 121
+ Total Traceable Variables  : 92
+ Total Scalar Nets and Variables : 3857
+Total Line Count : 1006
 
- Total Simulation Time: 0.02 sec
+ Total Simulation Time: 16.8 sec
 
- Current Memory Usage: 275.243 Meg
+ Current Memory Usage: 275.513 Meg
 
-Thu Dec  8 13:16:43 2016
+Mon Dec 12 20:59:55 2016
 

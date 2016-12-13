@@ -1,0 +1,29 @@
+Command line:
+   JackController_isim_beh.exe
+     -simmode  gui
+     -simrunnum  0
+     -socket  44699
+
+Tue Dec 13 20:19:45 2016
+
+
+ Elaboration Time: 0.02 sec
+
+ Current Memory Usage: 196.178 Meg
+
+ Total Signals          : 80
+ Total Nets             : 228
+ Total Signal Drivers   : 32
+ Total Blocks           : 9
+ Total Primitive Blocks : 8
+ Total Processes        : 9
+ Total Traceable Variables  : 23
+ Total Scalar Nets and Variables : 737
+Total Line Count : 106
+
+ Total Simulation Time: 0.03 sec
+
+ Current Memory Usage: 271.679 Meg
+
+Tue Dec 13 20:20:07 2016
+

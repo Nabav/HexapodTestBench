@@ -148,8 +148,6 @@ begin
 				PC_Tx_Buffer(23) +
 				PC_Tx_Buffer(24)
 				);
-	
 	PC_Tx_Buffer(25) <= checksum;
-				
 end Behavioral;
 

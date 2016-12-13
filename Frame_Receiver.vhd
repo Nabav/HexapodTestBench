@@ -27,29 +27,15 @@ architecture Behavioral of Frame_Receiver is
 	signal high_duration_counter : integer range 0 to 4 * baudrate_prescaler := 0;
 	signal threshold : std_logic := '0';
 	signal fresh_bit_received : std_logic := '0';
-	signal bus_idle_detected : std_logic := '0';
 begin
-	Low_State_Duration_Counter: process(clk)
+	Receive_Shift_Register: process(clk)
 		variable RX_RS485_old : std_logic := '0';
 	begin
 		if rising_edge(clk) then
---			if (RX_RS485 = '1') then
---				if (high_duration_counter < 4 * baudrate_prescaler) then
---					high_duration_counter <= high_duration_counter + 1;
---					bus_idle_detected <= '0';
---				else
---					bus_idle_detected <= '1';
---				end if;
---			else
---				bus_idle_detected <= '0';
---				high_duration_counter <= 0;
---			end if;
 			if (RX_RS485_old = '1' and RX_RS485 = '0') then
 				low_duration_counter <= 0;
 			elsif ((low_duration_counter < 3 * baudrate_prescaler) and (RX_RS485 = '0')) then
 				low_duration_counter <= low_duration_counter + 1;
---			elsif (bus_idle_detected = '1') then
---				Rx_Buffer <= (others => '0');
 			elsif (RX_RS485_old = '0' and RX_RS485 = '1') then
 				Rx_Buffer <= Rx_Buffer(38 downto 0) & threshold;
 				fresh_bit_received <= '1';
@@ -78,5 +64,4 @@ begin
 				Rx_Buffer(23 downto 16) +
 				Rx_Buffer(15 downto 8) +
 				Rx_Buffer(7 downto 0);
-
 end Behavioral;

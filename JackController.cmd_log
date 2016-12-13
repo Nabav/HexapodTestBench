@@ -5,3 +5,4 @@ xst -intstyle ise -ifn "/home/nabav/Workspace/HexapodTestBench/JackController.xs
 xst -intstyle ise -ifn "/home/nabav/Workspace/HexapodTestBench/JackController.xst" -ofn "/home/nabav/Workspace/HexapodTestBench/JackController.syr" 
 xst -intstyle ise -ifn "/home/nabav/Workspace/HexapodTestBench/JackController.xst" -ofn "/home/nabav/Workspace/HexapodTestBench/JackController.syr" 
 xst -intstyle ise -ifn "/home/nabav/Workspace/HexapodTestBench/JackController.xst" -ofn "/home/nabav/Workspace/HexapodTestBench/JackController.syr" 
+xst -intstyle ise -ifn "/home/nabav/Workspace/HexapodTestBench/JackController.xst" -ofn "/home/nabav/Workspace/HexapodTestBench/JackController.syr" 

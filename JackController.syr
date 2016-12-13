@@ -4,15 +4,15 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 Parameter TMPDIR set to xst/projnav.tmp
 
 
-Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.04 secs
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.05 secs
  
 --> 
 Parameter xsthdpdir set to xst
 
 
-Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.04 secs
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.05 secs
  
 --> 
 Reading design: JackController.prj
@@ -237,15 +237,15 @@ Synthesizing Unit <Frame_Receiver>.
     Found 3-bit register for signal <Rx_Jack_Nember>.
     Found 8-bit register for signal <Rx_Parameter_Address>.
     Found 16-bit register for signal <Rx_Parameter_Value>.
-    Found 1-bit register for signal <Low_State_Duration_Counter.RX_RS485_old>.
+    Found 1-bit register for signal <Receive_Shift_Register.RX_RS485_old>.
     Found 7-bit register for signal <low_duration_counter>.
-    Found 7-bit adder for signal <low_duration_counter[6]_GND_9_o_add_1_OUT> created at line 50.
-    Found 8-bit adder for signal <n0077> created at line 76.
-    Found 8-bit adder for signal <n0080> created at line 76.
-    Found 8-bit adder for signal <n0083> created at line 76.
-    Found 8-bit adder for signal <checksum> created at line 76.
-    Found 7-bit comparator greater for signal <low_duration_counter[6]_PWR_11_o_LessThan_1_o> created at line 49
-    Found 7-bit comparator lessequal for signal <low_duration_counter[6]_GND_9_o_LessThan_26_o> created at line 74
+    Found 7-bit adder for signal <low_duration_counter[6]_GND_9_o_add_1_OUT> created at line 38.
+    Found 8-bit adder for signal <n0077> created at line 62.
+    Found 8-bit adder for signal <n0080> created at line 62.
+    Found 8-bit adder for signal <n0083> created at line 62.
+    Found 8-bit adder for signal <checksum> created at line 62.
+    Found 7-bit comparator greater for signal <low_duration_counter[6]_PWR_11_o_LessThan_1_o> created at line 37
+    Found 7-bit comparator lessequal for signal <low_duration_counter[6]_GND_9_o_LessThan_26_o> created at line 60
     Summary:
 	inferred   5 Adder/Subtractor(s).
 	inferred  79 D-type flip-flop(s).
@@ -516,7 +516,7 @@ Slice Logic Distribution:
    Number of unique control sets:        11
 
 IO Utilization: 
- Number of IOs:                          91
+ Number of IOs:                          59
  Number of bonded IOBs:                  59  out of    316    18%  
 
 Specific Feature Utilization:
@@ -652,12 +652,12 @@ clk            |    7.440|         |         |         |
 
 
 Total REAL time to Xst completion: 5.00 secs
-Total CPU time to Xst completion: 4.94 secs
+Total CPU time to Xst completion: 4.91 secs
  
 --> 
 
 
-Total memory usage is 392812 kilobytes
+Total memory usage is 392808 kilobytes
 
 Number of errors   :    0 (   0 filtered)
 Number of warnings :   11 (   0 filtered)

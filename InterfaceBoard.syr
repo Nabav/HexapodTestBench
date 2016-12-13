@@ -427,15 +427,15 @@ Synthesizing Unit <Frame_Receiver>.
     Found 3-bit register for signal <Rx_Jack_Nember>.
     Found 8-bit register for signal <Rx_Parameter_Address>.
     Found 16-bit register for signal <Rx_Parameter_Value>.
-    Found 1-bit register for signal <Low_State_Duration_Counter.RX_RS485_old>.
+    Found 1-bit register for signal <Receive_Shift_Register.RX_RS485_old>.
     Found 7-bit register for signal <low_duration_counter>.
-    Found 7-bit adder for signal <low_duration_counter[6]_GND_12_o_add_1_OUT> created at line 50.
-    Found 8-bit adder for signal <n0077> created at line 76.
-    Found 8-bit adder for signal <n0080> created at line 76.
-    Found 8-bit adder for signal <n0083> created at line 76.
-    Found 8-bit adder for signal <checksum> created at line 76.
-    Found 7-bit comparator greater for signal <low_duration_counter[6]_PWR_15_o_LessThan_1_o> created at line 49
-    Found 7-bit comparator lessequal for signal <low_duration_counter[6]_GND_12_o_LessThan_26_o> created at line 74
+    Found 7-bit adder for signal <low_duration_counter[6]_GND_12_o_add_1_OUT> created at line 38.
+    Found 8-bit adder for signal <n0077> created at line 62.
+    Found 8-bit adder for signal <n0080> created at line 62.
+    Found 8-bit adder for signal <n0083> created at line 62.
+    Found 8-bit adder for signal <checksum> created at line 62.
+    Found 7-bit comparator greater for signal <low_duration_counter[6]_PWR_15_o_LessThan_1_o> created at line 37
+    Found 7-bit comparator lessequal for signal <low_duration_counter[6]_GND_12_o_LessThan_26_o> created at line 60
     Summary:
 	inferred   5 Adder/Subtractor(s).
 	inferred  79 D-type flip-flop(s).
@@ -757,6 +757,8 @@ Optimizing unit <Frame_Transmitter> ...
 Optimizing unit <Frame_Receiver> ...
 
 Optimizing unit <Interface_Board_Main_State_Machine> ...
+WARNING:Xst:2677 - Node <RS485_Frame_Receiver/Rx_Frame_Type_1> of sequential type is unconnected in block <InterfaceBoard>.
+WARNING:Xst:2677 - Node <RS485_Frame_Receiver/Rx_Frame_Type_0> of sequential type is unconnected in block <InterfaceBoard>.
 WARNING:Xst:1293 - FF/Latch <RS485_Frame_Transmitter/baudrate_prescaler_counter_5> has a constant value of 0 in block <InterfaceBoard>. This FF/Latch will be trimmed during the optimization process.
 
 Mapping all equations...
@@ -769,8 +771,8 @@ Final Macro Processing ...
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 1096
- Flip-Flops                                            : 1096
+# Registers                                            : 1094
+ Flip-Flops                                            : 1094
 
 =========================================================================
 
@@ -807,17 +809,17 @@ Primitive and Black Box Usage:
 #      MUXF8                       : 1
 #      VCC                         : 1
 #      XORCY                       : 295
-# FlipFlops/Latches                : 1096
+# FlipFlops/Latches                : 1094
 #      FD                          : 42
-#      FDE                         : 975
+#      FDE                         : 973
 #      FDR                         : 23
 #      FDRE                        : 47
 #      FDSE                        : 9
 # Clock Buffers                    : 1
 #      BUFGP                       : 1
-# IO Buffers                       : 35
+# IO Buffers                       : 5
 #      IBUF                        : 2
-#      OBUF                        : 33
+#      OBUF                        : 3
 
 Device utilization summary:
 ---------------------------
@@ -826,20 +828,20 @@ Selected Device : 6slx45fgg484-3
 
 
 Slice Logic Utilization: 
- Number of Slice Registers:            1096  out of  54576     2%  
+ Number of Slice Registers:            1094  out of  54576     2%  
  Number of Slice LUTs:                 1294  out of  27288     4%  
     Number used as Logic:              1294  out of  27288     4%  
 
 Slice Logic Distribution: 
- Number of LUT Flip Flop pairs used:   1747
-   Number with an unused Flip Flop:     651  out of   1747    37%  
-   Number with an unused LUT:           453  out of   1747    25%  
-   Number of fully used LUT-FF pairs:   643  out of   1747    36%  
+ Number of LUT Flip Flop pairs used:   1745
+   Number with an unused Flip Flop:     651  out of   1745    37%  
+   Number with an unused LUT:           451  out of   1745    25%  
+   Number of fully used LUT-FF pairs:   643  out of   1745    36%  
    Number of unique control sets:        41
 
 IO Utilization: 
- Number of IOs:                          38
- Number of bonded IOBs:                  36  out of    316    11%  
+ Number of IOs:                           6
+ Number of bonded IOBs:                   6  out of    316     1%  
 
 Specific Feature Utilization:
  Number of BUFG/BUFGCTRLs:                1  out of     16     6%  
@@ -865,7 +867,7 @@ Clock Information:
 -----------------------------------+------------------------+-------+
 Clock Signal                       | Clock buffer(FF name)  | Load  |
 -----------------------------------+------------------------+-------+
-clk                                | BUFGP                  | 1096  |
+clk                                | BUFGP                  | 1094  |
 -----------------------------------+------------------------+-------+
 
 Asynchronous Control Signals Information:
@@ -888,7 +890,7 @@ All values displayed in nanoseconds (ns)
 =========================================================================
 Timing constraint: Default period analysis for Clock 'clk'
   Clock period: 10.499ns (frequency: 95.248MHz)
-  Total number of paths / destination ports: 23145343 / 2202
+  Total number of paths / destination ports: 23141717 / 2198
 -------------------------------------------------------------------------
 Delay:               10.499ns (Levels of Logic = 19)
   Source:            PC_UART_Receiver/PC_Rx_Buffer_2_0 (FF)
@@ -946,7 +948,7 @@ Offset:              1.903ns (Levels of Logic = 1)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
-  Total number of paths / destination ports: 33 / 33
+  Total number of paths / destination ports: 3 / 3
 -------------------------------------------------------------------------
 Offset:              4.067ns (Levels of Logic = 1)
   Source:            RS485_Frame_Transmitter/Tx_Busy (FF)
@@ -979,15 +981,15 @@ clk            |   10.499|         |         |         |
 =========================================================================
 
 
-Total REAL time to Xst completion: 8.00 secs
-Total CPU time to Xst completion: 8.17 secs
+Total REAL time to Xst completion: 10.00 secs
+Total CPU time to Xst completion: 8.56 secs
  
 --> 
 
 
-Total memory usage is 401500 kilobytes
+Total memory usage is 401560 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :   19 (   0 filtered)
+Number of warnings :   21 (   0 filtered)
 Number of infos    :    7 (   0 filtered)
 

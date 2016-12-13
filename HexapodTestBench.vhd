@@ -14,8 +14,7 @@ architecture behavior of HexapodTestBench is
 		 TX_RS232 : OUT  std_logic;
 		 RX_RS485 : IN  std_logic;
 		 TX_RS485 : OUT  std_logic;
-		 DIR_RS485 : OUT  std_logic;
-		 debug_pin : OUT  std_logic_vector(31 downto 0)
+		 DIR_RS485 : OUT  std_logic
 		);
 	end component;
 	component JackController is
@@ -32,8 +31,7 @@ architecture behavior of HexapodTestBench is
 			Parameter_Bank_Write_Request : out std_logic;
 			Parameter_Bank_Write_Address : out std_logic_vector(7 downto 0);
 			Parameter_Bank_Write_Data : out std_logic_vector(15 downto 0);
-			Parameter_Bank_Write_Done : in std_logic;
-			debug_pin : out std_logic_vector(31 downto 0)
+			Parameter_Bank_Write_Done : in std_logic
 		);
 	end component;   
 
@@ -43,37 +41,36 @@ architecture behavior of HexapodTestBench is
 	signal Line_RS485 : std_logic := '1';
 	type PC_TX_array_type is array (0 to 25) of std_logic_vector(7 downto 0); 
 	signal PC_TX_Buffer : PC_TX_array_type := (
-		x"C1", 
-		x"03", x"12", x"13", x"14", 
-		x"00", x"00", x"00", x"00", 
-		x"00", x"00", x"00", x"00", 
-		x"00", x"00", x"00", x"00", 
-		x"00", x"00", x"00", x"00", 
-		x"00", x"00", x"00", x"00", 
-		x"00");
+--		x"C1", 
+--		x"03", x"12", x"13", x"14", 
+--		x"00", x"00", x"00", x"00", 
+--		x"00", x"00", x"00", x"00", 
+--		x"00", x"00", x"00", x"00", 
+--		x"00", x"00", x"00", x"00", 
+--		x"00", x"00", x"00", x"00", 
+--		x"00");
 --		x"C2", 
---		x"03", x"12", x"00", x"00", 
+--		x"02", x"3E", x"00", x"00", 
 --		x"00", x"00", x"00", x"00", 
 --		x"00", x"00", x"00", x"00", 
 --		x"00", x"00", x"00", x"00", 
 --		x"00", x"00", x"00", x"00", 
 --		x"00", x"00", x"00", x"00", 
 --		x"00");
---		x"C5", 
---		x"11", x"12", x"13", x"14", 
---		x"21", x"22", x"23", x"24", 
---		x"31", x"32", x"33", x"34", 
---		x"41", x"42", x"43", x"44", 
---		x"51", x"52", x"53", x"54", 
---		x"61", x"62", x"63", x"64", 
---		x"00");
+		x"C5", 
+		x"11", x"12", x"13", x"14", 
+		x"21", x"22", x"23", x"24", 
+		x"31", x"32", x"33", x"34", 
+		x"41", x"42", x"43", x"44", 
+		x"51", x"52", x"53", x"54", 
+		x"61", x"62", x"63", x"64", 
+		x"00");
 	
 	signal RX_RS232 : std_logic := '1';
 	signal RX_RS485_InterfaceBoard : std_logic := '1';
 	signal TX_RS232 : std_logic := '1';
 	signal TX_RS485_InterfaceBoard : std_logic := '1';
 	signal DIR_RS485_InterfaceBoard : std_logic := '0';
-	
 	type bit_array is array (0 to 5) of std_logic;
 	type vector3_array is array (0 to 5) of std_logic_vector(2 downto 0);
 	type vector8_array is array (0 to 5) of std_logic_vector(7 downto 0);
@@ -91,19 +88,16 @@ architecture behavior of HexapodTestBench is
 	signal Parameter_Bank_Write_Data : vector16_array := (others => (others => '0'));
 	signal Parameter_Bank_Write_Done : bit_array := (others => '0');
 begin
- 
-	uut_InterfaceBoard : InterfaceBoard
+	InterfaceBoard_instantiation : InterfaceBoard
 		port map (
 			clk => clk,
 			RX_RS232 => RX_RS232,
 			TX_RS232 => TX_RS232,
 			RX_RS485 => RX_RS485_InterfaceBoard,
 			TX_RS485 => TX_RS485_InterfaceBoard,
-			DIR_RS485 => DIR_RS485_InterfaceBoard,
-			debug_pin => open
+			DIR_RS485 => DIR_RS485_InterfaceBoard
 		);
-	
-	jacks: for i in 0 to 5 generate
+	Jacks_instantiation: for i in 0 to 5 generate
 	begin
 		uut_JackController : JackController
 			port map ( 
@@ -119,8 +113,7 @@ begin
 				Parameter_Bank_Write_Request => Parameter_Bank_Write_Request(i),
 				Parameter_Bank_Write_Address => Parameter_Bank_Write_Address(i),
 				Parameter_Bank_Write_Data => Parameter_Bank_Write_Data(i),
-				Parameter_Bank_Write_Done => Parameter_Bank_Write_Done(i),
-				debug_pin => open
+				Parameter_Bank_Write_Done => Parameter_Bank_Write_Done(i)
 			);
 	end generate;
 	
@@ -132,7 +125,6 @@ begin
 					TX_RS485_Jack(4) when (DIR_RS485_Jack(4) = '1') else
 					TX_RS485_Jack(5) when (DIR_RS485_Jack(5) = '1') else
 					'1';
-	
 	RX_RS485_InterfaceBoard <= Line_RS485 when (DIR_RS485_InterfaceBoard = '0') else '1';
 	jacks_signals: for i in 0 to 5 generate
 	begin

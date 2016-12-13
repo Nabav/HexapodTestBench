@@ -95,7 +95,5 @@ begin
 				Tx_Buffer(23 downto 16) +
 				Tx_Buffer(15 downto 8)
 				);
-
 	Tx_Buffer(7 downto 0) <= checksum;
-
 end Behavioral;

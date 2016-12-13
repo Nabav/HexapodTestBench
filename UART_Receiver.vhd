@@ -139,6 +139,4 @@ begin
 				PC_Rx_Buffer(23) +
 				PC_Rx_Buffer(24) +
 				PC_Rx_Buffer(25);
-				
 end Behavioral;
-
